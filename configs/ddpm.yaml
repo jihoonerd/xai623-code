@@ -1,0 +1,33 @@
+gpu_id: 1
+batch_size: 128
+training_epochs: 30
+
+ddpm:
+  diffusion_steps: 1000
+  beta_schedule: "cosine"
+  model_mean_type: "epsilon"
+  model_var_type: "learned_range"
+  loss_type: "rescaled_mse"
+  schedule_sampler: "uniform"
+  lr: 0.00005
+  weight_decay: 0.0
+  ema_start: 10
+  ema_update: 10
+  ema_decay: 0.99
+  sample_every: 1000
+  num_sample_imgs: 9
+
+  unet_args:
+    image_size: 28
+    in_channels: 1  # Mnist has 1 channel (grayscale)
+    model_channels: 128
+    out_channels: 2 # 2 * in_channels (for ddpm)
+    num_res_blocks: 1
+    attention_resolutions: [2, 4]  # image_size // int(res) = attention resolution
+    dropout: 0.0
+    channel_mult: [1, 1, 1]
+    conv_resample: True
+    dims: 2
+    num_heads: 4
+    use_scale_shift_norm: True
+    resblock_updown: True
