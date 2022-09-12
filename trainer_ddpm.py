@@ -57,7 +57,7 @@ for epoch in pbar:
         optimizer.step()
         ddpm_model.step_ema()
 
-    if epoch % 2 == 0:
+    if epoch % ddpm_model.sample_every == 0:
         pbar.set_description(f"Epoch: {epoch} | [Visualizing]")
         res = ddpm_model.net.image_size
         ema_model = ddpm_model.ema_model.model.eval()

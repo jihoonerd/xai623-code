@@ -14,7 +14,7 @@ ddpm:
   ema_start: 10
   ema_update: 10
   ema_decay: 0.99
-  sample_every: 1000
+  sample_every: 2
   num_sample_imgs: 9
 
   unet_args:

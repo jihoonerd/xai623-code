@@ -31,7 +31,7 @@ class DDPM(torch.nn.Module):
         ema_start: int = 5000,
         ema_update: int = 100,
         ema_decay: float = 0.995,
-        sample_every: int = 10000,
+        sample_every: int = 2,
         num_sample_imgs: int = 9,
     ):
 
