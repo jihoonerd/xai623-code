@@ -69,5 +69,6 @@ for epoch in pbar:
         grid_img = make_grid(
             sampled_img, nrow=int(math.sqrt(ddpm_model.num_sample_imgs))
         )
-        writer.add_scalar("Loss/loss", loss, ddpm_model.global_step)
         writer.add_image(f"x_0", grid_img, global_step=ddpm_model.global_step)
+
+    writer.add_scalar("Loss/loss", loss, ddpm_model.global_step)
