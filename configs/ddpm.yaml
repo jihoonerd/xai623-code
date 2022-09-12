@@ -1,6 +1,6 @@
 gpu_id: 1
 batch_size: 128
-training_epochs: 30
+training_epochs: 100
 
 ddpm:
   diffusion_steps: 1000
@@ -9,7 +9,7 @@ ddpm:
   model_var_type: "learned_range"
   loss_type: "rescaled_mse"
   schedule_sampler: "uniform"
-  lr: 0.00005
+  lr: 0.0001
   weight_decay: 0.0
   ema_start: 10
   ema_update: 10
@@ -20,7 +20,7 @@ ddpm:
   unet_args:
     image_size: 28
     in_channels: 1  # Mnist has 1 channel (grayscale)
-    model_channels: 128
+    model_channels: 64
     out_channels: 2 # 2 * in_channels (for ddpm)
     num_res_blocks: 1
     attention_resolutions: [2, 4]  # image_size // int(res) = attention resolution
